@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-cormorant: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-handwriting: "Caveat", cursive;
+
+  --color-parchment: #FAF7F2;
+  --color-parchment-paper: #F5EFEB;
+  --color-parchment-deep: #EDE4DA;
+  --color-warm-border: #E5DDD3;
+  --color-warm-subtle: #D8CCC0;
+
+  --color-coffee-950: #17110E;
+  --color-coffee-900: #231B17;
+  --color-coffee-800: #332721;
+  --color-coffee-700: #4A3A32;
+  --color-coffee-600: #6B564A;
+  --color-coffee-500: #8C7567;
+  --color-coffee-400: #AB978A;
+
+  --color-terracotta: #C2634B;
+  --color-terracotta-dark: #A24B35;
+  --color-terracotta-soft: #FBF2EE;
+  --color-terracotta-border: #E8C9BD;
+
+  --color-sand: #D4A373;
+  --color-sand-soft: #F8F3EC;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-warm-border);
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    color: #261D18;
+    background-color: #FAF7F2;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(194, 99, 75, 0.22);
+    color: #8C3824;
+  }
+}
+
+/* Paper Grain Texture */
+.paper-grain {
+  background-image: radial-gradient(rgba(45, 33, 27, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.paper-grain-dark {
+  background-image: radial-gradient(rgba(245, 239, 235, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Subtle Book Page Border Accent */
+.book-edge {
+  box-shadow: 
+    0 1px 1px rgba(0,0,0,0.04),
+    0 2px 2px rgba(0,0,0,0.04),
+    0 4px 4px rgba(0,0,0,0.04),
+    0 8px 8px rgba(0,0,0,0.04),
+    inset 0 0 0 1px rgba(229, 221, 211, 0.8);
+}
+
+.editorial-shadow {
+  box-shadow: 0 20px 40px -15px rgba(35, 27, 23, 0.08);
+}
+
+.editorial-shadow-lg {
+  box-shadow: 0 30px 60px -20px rgba(35, 27, 23, 0.14);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8CCC0;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C2634B;
+}
+
+/* Animation Utilities */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes gentlePulse {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+.animate-gentle-pulse {
+  animation: gentlePulse 6s ease-in-out infinite;
+}
